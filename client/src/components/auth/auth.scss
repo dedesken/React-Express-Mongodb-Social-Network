@@ -1,0 +1,72 @@
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 30px;
+    }
+    
+    form {
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: 400px;
+        min-height: 400px;
+        width: 90%;
+
+        &>*{
+            margin: 10px 0;
+        }
+
+        input {
+            padding: 18px 10px;
+            border: 1px solid grey;
+            border-radius: 3px;
+            font-size: 18px;
+            width: calc(100% - 20px);
+            outline: none;
+
+            &:focus {
+                border-color: rgb(29, 161, 242);
+            }
+        }
+
+        button {
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            padding: 10px;
+            width: 100%;
+            height: 50px;
+            border-radius: 999999px;
+            font-weight: 600;
+            font-size: 18px;
+            border: none;
+            background-color: rgb(29, 161, 242);
+            color: white;
+            &:hover {
+                background-color: rgb(26, 145, 218)
+            }
+
+            &:disabled {
+                background-color: rgb(29, 161, 242, 0.5);
+            }
+        }
+
+        a {
+            font-weight: normal;
+            font-size: 16px;
+            color:rgb(29, 161, 242);
+            align-self: center;
+    
+            &:hover {
+                color:rgb(26, 145, 218)
+            }
+        }
+    }
+    
+}
