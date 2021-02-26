@@ -32,7 +32,7 @@ const sendToken = (user, statusCode, res) => {
         status: 'success',
         token, 
         data: {
-            user: user
+            data: user
         }
     })
 }
@@ -145,7 +145,7 @@ exports.authMe = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: "success",
         data: {
-            user: res.user
+            data: res.user
         }
     })
 })
@@ -178,7 +178,7 @@ exports.updatePassword = catchAsync(async (req, res, next)=> {
     res.status(200).json({
         status: 'success',
         data: {
-            user
+            data
         }
     })
 })
@@ -211,6 +211,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
             status: 'success',
             message: 'Токен отправлен!'
         })
+
     } catch (err) {
         user.passwordResetToken = undefined
         user.passwordResetExpires = undefined
@@ -242,3 +243,20 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     //4) Отправка куки авторизации
     sendToken(user, 200, res)
 })
+
+const getCase = (num) => { 
+    const words = ['компьютер', 'компьютера', 'компьютеров'] 
+    const num1 = num % 100; 
+    const num2 = num % 10;
+    if (num1 > 10 && num1 < 20) { 
+        return words[2]
+    }
+    if (num2 > 1 && num2 < 5) { 
+        return words[1] 
+    }
+    if (num2 == 1) { 
+        return words[0]
+    }
+    
+    return `num ${words[2]}`
+}

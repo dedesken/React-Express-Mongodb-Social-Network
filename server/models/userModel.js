@@ -72,6 +72,10 @@ userSchema.virtual('followersCount').get(function() {
     return this.followers.length
 })
 
+userSchema.virtual('followingCount').get(function() {
+    return this.following.length
+})
+
 userSchema.methods.changePasswordAfter = async function(JWTTimeStamp) {
     if(this.passwordChangedAt) {
         const changedTimestamp = parseInt(this.passwordChangedAt.getTime() / 1000, 10)

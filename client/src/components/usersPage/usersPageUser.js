@@ -1,15 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import defaultImg from '../../assets/users/defaultUser.png'
-
-//Компонент кнопки подписки
-const FollowFlowButton = ({followed, follow, unfollow, fetching}) => {
-    if(!followed) {
-        return <button disabled={fetching} onClick={follow}>Подписаться</button>
-    } else {
-        return <button disabled={fetching} onClick={unfollow}>Отписаться</button>
-    }
-}
+import { FollowFlowButton } from '../utils/preloder/followButton/followFlowButtom'
 
 export const User = ({user, isAuth, authUserId, followFlowFetching, followUser, unfollowUser}) => {
     //Проверка на наличие подписки на пользователя
@@ -23,7 +15,7 @@ export const User = ({user, isAuth, authUserId, followFlowFetching, followUser, 
             <p>Подписчиков: {user.followersCount}</p>
         </div>
         { //Если пользователь авторизован и id пользователя не совпадает с id пользователя из списка отображается кнопка
-                (isAuth && user.id !== authUserId) && 
+                (user.id !== authUserId) && 
                 <FollowFlowButton  
                     fetching={followFlowFetching} 
                     followed={followed} 

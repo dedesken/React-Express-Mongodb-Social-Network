@@ -59,7 +59,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     }
 
     //2) Фильтрация нежелаемых данных если они есть
-    const filtredBody = filterObj(req.body, 'name', 'email')
+    const filtredBody = filterObj(req.body, 'name', 'email', 'status')
     
     // Если есть файл (фото), добавляем его в отфильтрованное тело
     if(req.file) {

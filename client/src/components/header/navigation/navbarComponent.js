@@ -5,7 +5,7 @@ import { MailIcon, ProfileIcon, UsersIcon } from '../icons/icons';
 export const NavbarComponent = (props) => {
     return <nav className='header__content--nav'>
         <div className='header__content--nav-links'>   
-            <NavLink to={'/me'}>
+            <NavLink to={`/users/${props.id}`}>
                 <div>
                     <ProfileIcon/>
                     <span>Моя страница</span>

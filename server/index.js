@@ -8,7 +8,7 @@ const helmet = require("helmet")
 const cors = require("cors")
 const globalErrorHandler = require('./controllers/errorController')
 
-const userRouter = require('./routes/userRoutes')
+const userRouter = require('./routes/userRoutes');
 
 dotenv.config({path: './config.env'})
 
@@ -23,6 +23,8 @@ mongoose.connect(DB, {
 
 const app = express(); // create express app
 
+app.use(cookieParser())
+
 app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true
@@ -36,7 +38,6 @@ if(process.env.NODE_ENV === 'development') {
 
 //body парсеры
 app.use(express.json({limit: '10kb'}))
-app.use(cookieParser())
 
 // add middlewares
 app.use(express.static(path.join(__dirname, "..", "build")));
